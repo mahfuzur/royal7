@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PostModule } from './post/post.module';
+import { AppComponent } from './app.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  { path: 'post', component: PostModule }
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'post', loadChildren: () => import('./post/post.module').then(m => m.PostModule) },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: '**', redirectTo: 'welcome' },
 ];
 
 @NgModule({
