@@ -7,6 +7,7 @@ import { ListComponent } from './list/list.component';
   declarations: [CreateComponent, ListComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  entryComponents: [CreateComponent, ListComponent]
 })
 export class PostModule { }
