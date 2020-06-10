@@ -1,3 +1,10 @@
 <p>
-  list works!
+  All Sessions Lists
 </p>
+
+<div>
+  <div *ngFor="let item of posts">
+    <h3>{{item.title}}</h3>
+    <a routerLink="/post/show/{{item.slug}}">Details</a>
+  </div>
+</div>
