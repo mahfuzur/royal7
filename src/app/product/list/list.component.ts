@@ -11,7 +11,7 @@ export class ListComponent implements OnInit {
   products: any = [];
   carts: any = {};
   isLoading: boolean = true;
-
+  showCart: boolean = false;
   cartsDiffer: KeyValueDiffer<string, any>;
 
   constructor(private api: ApiService, private differ: KeyValueDiffers) {

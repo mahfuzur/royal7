@@ -1,22 +1,26 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" routerLink="/welcome">Royal7</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/welcome">Home</a>
+        <a class="nav-link" routerLink="/welcome" (click)="isCollapsed = !isCollapsed">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/post/list">Posts</a>
+        <a class="nav-link" routerLink="/post/list" (click)="isCollapsed = !isCollapsed">Posts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/product/list">Product</a>
+        <a class="nav-link" routerLink="/product/list" (click)="isCollapsed = !isCollapsed">Product</a>
       </li>
     </ul>
+    <div class="form-inline my-2 my-lg-0" _lpchecked="1">
+      <a class="btn btn-outline-success my-2 my-sm-0" href="https://github.com/mahfuzur/royal7" target="_blank">Github
+        Link</a>
+    </div>
   </div>
 </nav>
 

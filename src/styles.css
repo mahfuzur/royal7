@@ -42,5 +42,12 @@ body {
   width: 400px;
   position: fixed;
   right: 0;
-  top: 70px;
+  top: 100px;
+}
+
+.cart-button{
+  position: fixed;
+  right: 10px;
+  top: 60px;
+  z-index: 10;
 }
