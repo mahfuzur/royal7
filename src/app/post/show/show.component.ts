@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/api.service';
 export class ShowComponent implements OnInit {
   slug: string = "";
   post: any = {};
-
+  isLoading: boolean = true;
   constructor(
     private route: ActivatedRoute,
     private api: ApiService) {
@@ -20,6 +20,7 @@ export class ShowComponent implements OnInit {
   ngOnInit() {
     this.api.getPost(this.slug).subscribe(res => {
       this.post = res;
+      this.isLoading = false;
     })
   }
 

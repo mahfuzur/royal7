@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  apiURL = 'http://bdf.erd.gov.bd/api/public';
+  apiURL = 'https://cors-anywhere.herokuapp.com/http://bdf.erd.gov.bd/api/public';
 
   constructor(private http: HttpClient) { }
 

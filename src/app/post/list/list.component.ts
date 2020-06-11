@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/api.service';
 export class ListComponent implements OnInit {
 
   posts: any = [];
+  isLoading: boolean = true;
   constructor(private api: ApiService) { }
 
   ngOnInit() {
@@ -16,6 +17,7 @@ export class ListComponent implements OnInit {
 
       .subscribe(res => {
         this.posts = res;
+        this.isLoading = false;
       })
   }
 
