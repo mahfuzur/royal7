@@ -24,7 +24,7 @@
             <input type="checkbox" ngbButton (click)="addToCart(item, -1)"> -
           </label>
           <button class="btn-primary" ngbButtonLabel disabled>
-            {{this.carts[item.id]}}
+            {{carts[item.id]}}
           </button>
           <label class="btn-primary" ngbButtonLabel>
             <input type="checkbox" ngbButton (click)="addToCart(item, 1)"> +
@@ -39,4 +39,47 @@
     </div>
 
   </div>
+</div>
+
+<div class="sidebar">
+  <h2 class="center">Cart Items</h2>
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <th>sl.</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartProducts();index as i">
+        <td>{{i+1}}</td>
+        <td>{{item.productName}}</td>
+        <td>
+          <div class="btn-group btn-group-toggle" *ngIf="!!this.carts[item.id]">
+            <label class="btn-primary" ngbButtonLabel>
+              <input type="checkbox" ngbButton (click)="addToCart(item, -1)"> -
+            </label>
+            <button class="btn-primary" ngbButtonLabel disabled>
+              {{carts[item.id]}}
+            </button>
+            <label class="btn-primary" ngbButtonLabel>
+              <input type="checkbox" ngbButton (click)="addToCart(item, 1)"> +
+            </label>
+          </div>
+        </td>
+        <td>{{carts[item.id] * item.price}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th>Total</th>
+        <th></th>
+        <th>{{getTotalPrice()}}</th>
+      </tr>
+    </tfoot>
+  </table>
+
 </div>

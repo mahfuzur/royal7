@@ -33,3 +33,14 @@ body {
   background-size: cover !important;
   background-position: center !important;
 }
+
+.sidebar {
+  background: antiquewhite;
+  height: 600px;
+  overflow-y: scroll;
+  /* height: 300px; */
+  width: 400px;
+  position: fixed;
+  right: 0;
+  top: 70px;
+}

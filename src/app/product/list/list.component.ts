@@ -55,4 +55,15 @@ export class ListComponent implements OnInit {
       this.cartChanged(changes);
     }
   }
+
+  cartProducts(): any[] {
+    return this.products.filter(item => !!this.carts[item.id])
+  }
+
+  getTotalPrice() {
+    return this.cartProducts().reduce((acc, cur) => {
+      acc += this.carts[cur.id] * cur.price;
+      return acc;
+    }, 0)
+  }
 }
