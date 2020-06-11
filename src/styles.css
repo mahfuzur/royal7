@@ -38,11 +38,11 @@ body {
   background: antiquewhite;
   height: 600px;
   overflow-y: scroll;
-  /* height: 300px; */
   width: 400px;
   position: fixed;
   right: 0;
   top: 100px;
+  z-index: 5;
 }
 
 .cart-button{
