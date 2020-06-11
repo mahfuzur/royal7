@@ -1,0 +1,42 @@
+<div class="center">
+  <h1>Product List</h1>
+
+  <div class="text-center" *ngIf="isLoading">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <p>Loading!</p>
+  </div>
+
+
+  <div class="card-columns">
+    <div class="card" *ngFor="let item of products">
+      <img class="card-img-top" src="{{'https://khaasfood.com/' + item.image}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{item.productName}}</h5>
+        <b>Price</b>: {{item.price}} <br>
+        <b>Size</b>: {{item.prsizesce}}
+      </div>
+      <div class="card-footer">
+
+        <div class="btn-group btn-group-toggle" *ngIf="!!this.carts[item.id]">
+          <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton (click)="addToCart(item, -1)"> -
+          </label>
+          <button class="btn-primary" ngbButtonLabel disabled>
+            {{this.carts[item.id]}}
+          </button>
+          <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton (click)="addToCart(item, 1)"> +
+          </label>
+        </div>
+        <div *ngIf="!this.carts[item.id]">
+          <button class="btn-primary" ngbButtonLabel (click)="addToCart(item, 1)">
+            Add to card
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

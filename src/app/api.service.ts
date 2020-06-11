@@ -17,4 +17,8 @@ export class ApiService {
   getPost(slug): Observable<any> {
     return this.http.get<any>(this.apiURL + '/sessions/' + slug)
   }
+
+  getProducts(): Observable<any> {
+    return this.http.get<any>('https://cors-anywhere.herokuapp.com/https://khaasfood.com/product')
+  }
 }
