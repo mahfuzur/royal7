@@ -1,7 +1,38 @@
-<p>
-  Session Details
-</p>
+<div class="starter-template">
+  <h1 class="center">{{post.title}}</h1>
+</div>
+<div class="cover" [ngStyle]="{height: '300px', background: 'url(' + post.cover_photo + ')'}">
+</div>
 
-<pre>
-  {{post | json}}
-</pre>
+<br><br>
+<h3>Session Concept:</h3>
+<p>
+  {{post.concept}}
+</p>
+<div>
+  <b>Time</b>: {{post.start_at | date:'h:mm a'}} - {{post.ends_at | date:'h:mm a'}}
+  <br>
+  <b>Date</b>: {{post.start_at | date:'MMM d, y'}}
+</div>
+<h2 class="center">Panelists</h2>
+<hr>
+
+<div class="row">
+  <div class="col-md-3" *ngFor="let item of post.panelists">
+    <div class="card mb-3 shadow-sm">
+      <a routerLink="/post/show/{{item.slug}}">
+        <div class="text-center">
+          <img src="{{item.photo}}" alt="" class="img-thumbnail rounded">
+
+        </div>
+      </a>
+      <div class="card-body">
+        <p class="card-text">{{item.full_name}}</p>
+        <p class="card-text">{{item.designation}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
